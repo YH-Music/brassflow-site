@@ -7,73 +7,148 @@
 <meta name="description" content="Trading company working with partner factories in Shuikou, Kaiping — China's faucet manufacturing hub. Brass basin mixers, kitchen mixers, shower sets, angle valves. OEM & ODM welcome.">
 <style>
   :root{
-    --ink:#1c2733; --brass:#b07d2b; --brass-d:#8a5f1d; --paper:#f7f5f0; --line:#e3ded4;
+    --bg:#101418; --bg2:#161c22; --panel:#1c242c; --line:#2a3540;
+    --brass:#c9a15e; --brass-hi:#e8c98a; --ink:#e9edf1; --mut:#93a1ad;
   }
   *{margin:0;padding:0;box-sizing:border-box}
-  body{font-family:Georgia,'Times New Roman',serif;color:var(--ink);background:var(--paper);line-height:1.6}
-  .sans{font-family:'Segoe UI',Arial,Helvetica,sans-serif}
-  header{background:#fff;border-bottom:3px solid var(--brass)}
-  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
-  .topbar{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
-  .logo{font-size:22px;font-weight:700;letter-spacing:.5px}
-  .logo b{color:var(--brass)}
-  .topbar .sans{font-size:13px;color:#666}
-  .hero{padding:64px 0 56px;background:linear-gradient(180deg,#fff 0%,var(--paper) 100%)}
-  .hero h1{font-size:38px;line-height:1.25;max-width:760px}
-  .hero p{margin-top:18px;font-size:18px;color:#44505c;max-width:680px}
-  .cta{display:inline-block;margin-top:28px;background:var(--brass);color:#fff;padding:13px 28px;text-decoration:none;font-family:'Segoe UI',Arial,sans-serif;font-size:15px;border-radius:3px}
-  .cta:hover{background:var(--brass-d)}
-  section{padding:52px 0}
-  h2{font-size:26px;margin-bottom:22px;border-left:4px solid var(--brass);padding-left:12px}
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
-  .card{background:#fff;border:1px solid var(--line);border-radius:4px;padding:22px}
-  .card h3{font-size:17px;margin-bottom:8px;color:var(--brass-d)}
-  .card p{font-size:14.5px;color:#4a5560}
-  .why{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-  .why ul{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
-  .why li{padding-left:26px;position:relative;font-size:15.5px}
-  .why li::before{content:"✓";position:absolute;left:0;color:var(--brass);font-weight:700}
-  .contact{background:var(--ink);color:#e8ecf0}
-  .contact h2{color:#fff;border-color:var(--brass)}
-  .contact a{color:#ffd98a}
-  .contact .row{display:flex;flex-wrap:wrap;gap:26px;font-size:16px}
-  footer{padding:26px 0;font-size:13px;color:#8a8f96;text-align:center}
-  .note{font-size:13px;color:#7a828a;margin-top:14px}
+  html{scroll-behavior:smooth}
+  body{font-family:'Segoe UI',Arial,Helvetica,sans-serif;background:var(--bg);color:var(--ink);line-height:1.65}
+  .serif{font-family:Georgia,'Times New Roman',serif}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+
+  header{position:sticky;top:0;z-index:10;background:rgba(16,20,24,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .topbar{display:flex;justify-content:space-between;align-items:center;padding:16px 0}
+  .logo{font-family:Georgia,serif;font-size:21px;letter-spacing:2px;color:var(--ink)}
+  .logo b{color:var(--brass);font-weight:700}
+  nav a{margin-left:22px;color:var(--mut);text-decoration:none;font-size:13.5px;letter-spacing:1px;text-transform:uppercase}
+  nav a:hover{color:var(--brass-hi)}
+
+  /* HERO — dark showroom */
+  .hero{position:relative;overflow:hidden;background:
+    radial-gradient(1100px 500px at 75% -10%, #22303c 0%, transparent 60%),
+    linear-gradient(180deg,#131920 0%, var(--bg) 100%);
+    padding:96px 0 110px}
+  .hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+  .kicker{color:var(--brass);font-size:13px;letter-spacing:3px;text-transform:uppercase;margin-bottom:18px}
+  .hero h1{font-family:Georgia,serif;font-size:46px;line-height:1.18;font-weight:400;max-width:620px}
+  .hero h1 em{font-style:normal;color:var(--brass-hi)}
+  .hero p{margin-top:20px;color:var(--mut);font-size:16.5px;max-width:560px}
+  .cta{display:inline-block;margin-top:30px;background:linear-gradient(180deg,var(--brass-hi),var(--brass));color:#14100a;padding:14px 30px;text-decoration:none;font-size:14.5px;font-weight:600;letter-spacing:.5px;border-radius:2px}
+  .cta:hover{filter:brightness(1.08)}
+  .cta.ghost{background:transparent;border:1px solid var(--brass);color:var(--brass-hi);margin-left:12px}
+  /* faucet line-art */
+  .art{display:flex;justify-content:center}
+  .art svg{width:min(340px,80%);height:auto}
+  .ripple{position:absolute;left:0;right:0;bottom:-2px;height:120px;opacity:.5}
+
+  section{padding:72px 0}
+  .sec-head{margin-bottom:34px}
+  .sec-head .kicker{margin-bottom:8px}
+  .sec-head h2{font-family:Georgia,serif;font-size:30px;font-weight:400}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:26px 24px;transition:border-color .2s, transform .2s}
+  .card:hover{border-color:var(--brass);transform:translateY(-3px)}
+  .card svg{width:44px;height:44px;margin-bottom:14px}
+  .card h3{font-size:16.5px;margin-bottom:8px;color:var(--brass-hi);font-weight:600}
+  .card p{font-size:14px;color:var(--mut)}
+
+  .stats{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:44px 0}
+  .stats .row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px;text-align:center}
+  .stat b{display:block;font-family:Georgia,serif;font-size:34px;color:var(--brass-hi);font-weight:400}
+  .stat span{font-size:13px;color:var(--mut);letter-spacing:1px;text-transform:uppercase}
+
+  .why ul{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
+  .why li{padding:18px 20px 18px 46px;position:relative;font-size:15px;color:#c6cfd8;background:var(--panel);border:1px solid var(--line);border-radius:6px}
+  .why li::before{content:"";position:absolute;left:18px;top:24px;width:10px;height:10px;border-radius:50%;background:var(--brass)}
+  .note{font-size:13.5px;color:var(--mut);margin-top:20px}
+
+  .contact{background:linear-gradient(180deg,var(--bg2),#0c1014);border-top:1px solid var(--line)}
+  .contact h2{font-family:Georgia,serif;font-size:30px;font-weight:400;margin-bottom:18px}
+  .contact .row{display:flex;flex-wrap:wrap;gap:30px;font-size:15.5px;color:var(--mut)}
+  .contact a{color:var(--brass-hi);text-decoration:none}
+  footer{padding:26px 0;font-size:12.5px;color:#5d6a75;text-align:center}
+  @media(max-width:820px){.hero .wrap{grid-template-columns:1fr}.art{order:-1}.hero h1{font-size:34px}}
 </style>
 </head>
 <body>
 <header>
   <div class="wrap topbar">
-    <div class="logo">Brass <b>Flow</b> Faucets</div>
-    <nav class="sans" style="font-size:14px"><a href="/" style="color:var(--ink);text-decoration:none;margin-left:16px">Home</a><a href="/products.html" style="color:var(--ink);text-decoration:none;margin-left:16px">Products</a><a href="/about.html" style="color:var(--ink);text-decoration:none;margin-left:16px">About</a><a href="/faq.html" style="color:var(--ink);text-decoration:none;margin-left:16px">FAQ</a></nav>
+    <div class="logo">BRASS <b>FLOW</b></div>
+    <nav><a href="/">Home</a><a href="/products.html">Products</a><a href="/about.html">About</a><a href="/faq.html">FAQ</a></nav>
   </div>
 </header>
 
 <section class="hero">
   <div class="wrap">
-    <h1>Brass faucets &amp; sanitary ware, sourced at the source.</h1>
-    <p>We are a sourcing and export team working hand-in-hand with production partner factories in <strong>Shuikou, Kaiping</strong> — the town known as China's home of faucets. We help importers, wholesalers and project buyers in the Middle East, Africa, Latin America and Southeast Asia buy brass mixers, shower sets and plumbing accessories at factory-direct terms.</p>
-    <a class="cta" href="mailto:sales@brassflowfaucets.com">Request a quotation — sales@brassflowfaucets.com</a>
+    <div>
+      <div class="kicker">Shuikou · Kaiping — China's faucet capital</div>
+      <h1>Brass faucets that <em>look premium</em>, priced at the source.</h1>
+      <p>We are an export team working hand-in-hand with casting, polishing and plating workshops in Shuikou — the town that makes more faucets than anywhere on earth. We help importers, wholesalers and project buyers in the Middle East, Africa, Latin America and Southeast Asia buy brass mixers, shower sets and valves at factory-direct terms.</p>
+      <a class="cta" href="mailto:sales@brassflowfaucets.com">Request a quotation</a>
+      <a class="cta ghost" href="/products.html">View products</a>
+    </div>
+    <div class="art">
+      <svg viewBox="0 0 200 260" fill="none" stroke="#c9a15e" stroke-width="2.5" stroke-linecap="round">
+        <path d="M60 240 h80" stroke="#2a3540" stroke-width="3"/>
+        <path d="M100 240 v-70"/>
+        <path d="M100 170 c0-40 0-60 0-75 c0-22 26-30 44-30 c26 0 40 14 40 34 v10"/>
+        <path d="M184 109 v14 c0 8-6 12-12 12 h-8"/>
+        <circle cx="100" cy="170" r="10"/>
+        <path d="M100 160 c-14 0-24-4-30-12" />
+        <path d="M70 148 c-8-2-14 2-14 8 v6"/>
+        <path d="M56 162 v10" stroke-width="2"/>
+        <path d="M160 140 q0 14 -6 22" stroke="#e8c98a" stroke-width="1.6" opacity=".7"/>
+        <path d="M152 168 q-2 8 -2 14" stroke="#e8c98a" stroke-width="1.4" opacity=".5"/>
+        <circle cx="150" cy="196" r="2.5" fill="#e8c98a" stroke="none" opacity=".6"/>
+        <circle cx="156" cy="208" r="2" fill="#e8c98a" stroke="none" opacity=".4"/>
+      </svg>
+    </div>
   </div>
+  <svg class="ripple" viewBox="0 0 1200 120" preserveAspectRatio="none">
+    <path d="M0 60 Q150 30 300 60 T600 60 T900 60 T1200 60 V120 H0 Z" fill="#161c22"/>
+    <path d="M0 75 Q150 50 300 75 T600 75 T900 75 T1200 75" fill="none" stroke="#c9a15e" stroke-opacity=".25"/>
+    <path d="M0 90 Q150 68 300 90 T600 90 T900 90 T1200 90" fill="none" stroke="#c9a15e" stroke-opacity=".12"/>
+  </svg>
 </section>
 
 <section>
   <div class="wrap">
-    <h2>What we supply</h2>
+    <div class="sec-head"><div class="kicker">Catalog</div><h2>What we supply</h2></div>
     <div class="grid">
-      <div class="card"><h3>Basin &amp; Bath Mixers</h3><p>Single-lever and two-handle brass mixers, hot/cold and mixer taps, in classic and modern trims.</p></div>
-      <div class="card"><h3>Kitchen Mixers</h3><p>Swan-neck, pull-out and 360° rotary kitchen taps, brass body with chrome / brushed / PVD finishes.</p></div>
-      <div class="card"><h3>Shower Sets &amp; Accessories</h3><p>Shower mixers, hand showers, overhead sets, hoses, angle valves and connection parts.</p></div>
-      <div class="card"><h3>OEM / ODM &amp; Private Label</h3><p>Your brand on the product, the box and the carton. We coordinate tooling, finishing and packing with the factory.</p></div>
+      <div class="card">
+        <svg viewBox="0 0 44 44" fill="none" stroke="#c9a15e" stroke-width="2" stroke-linecap="round"><path d="M22 40 V22"/><path d="M22 22 c0-8 0-10 6-10 s8 4 8 8 v3"/><circle cx="22" cy="22" r="4"/></svg>
+        <h3>Basin &amp; Bath Mixers</h3><p>Single-lever and two-handle brass mixers, hot/cold and mixer taps, classic and modern trims.</p>
+      </div>
+      <div class="card">
+        <svg viewBox="0 0 44 44" fill="none" stroke="#c9a15e" stroke-width="2" stroke-linecap="round"><path d="M10 40 V18 c0-6 6-10 12-10 s10 4 10 10 q0 6-6 8"/><path d="M26 26 v4"/><circle cx="10" cy="40" r="2.5"/></svg>
+        <h3>Kitchen Mixers</h3><p>Swan-neck, pull-out and 360° rotary kitchen taps — brass body, chrome / brushed / PVD finishes.</p>
+      </div>
+      <div class="card">
+        <svg viewBox="0 0 44 44" fill="none" stroke="#c9a15e" stroke-width="2" stroke-linecap="round"><circle cx="22" cy="10" r="6"/><path d="M22 16 v4"/><path d="M14 26 v6 M22 26 v10 M30 26 v6" stroke-width="1.6"/></svg>
+        <h3>Shower Sets &amp; Accessories</h3><p>Shower mixers, hand showers, overhead sets, hoses, angle valves and connection parts.</p>
+      </div>
+      <div class="card">
+        <svg viewBox="0 0 44 44" fill="none" stroke="#c9a15e" stroke-width="2" stroke-linecap="round"><rect x="8" y="14" width="28" height="20" rx="2"/><path d="M8 20 h28 M16 14 v-4 h12 v4"/></svg>
+        <h3>OEM / ODM &amp; Private Label</h3><p>Your brand on the product, the box and the carton. We coordinate tooling, finishing and packing.</p>
+      </div>
     </div>
   </div>
 </section>
 
+<div class="stats">
+  <div class="wrap row">
+    <div class="stat"><b>1M+</b><span>cartridge cycle tests</span></div>
+    <div class="stat"><b>24h</b><span>quote turnaround</span></div>
+    <div class="stat"><b>1 pc</b><span>samples to start</span></div>
+    <div class="stat"><b>40+</b><span>finish options</span></div>
+  </div>
+</div>
+
 <section class="why">
   <div class="wrap">
-    <h2>Why buy through us</h2>
+    <div class="sec-head"><div class="kicker">Why us</div><h2>Why buy through us</h2></div>
     <ul>
-      <li>Partner factories sit in Shuikou — the faucet industry cluster, so tooling, casting, polishing and plating are all next door.</li>
+      <li>Partner factories sit in Shuikou — the faucet industry cluster: tooling, casting, polishing and plating all next door.</li>
       <li>Small first orders welcome — we consolidate and grow with you.</li>
       <li>One English-speaking contact from sample to container — no telephone game with the factory.</li>
       <li>Pre-shipment inspection photos and videos with every order.</li>
@@ -94,8 +169,6 @@
   </div>
 </section>
 
-<footer>
-  <div class="wrap">© 2026 Brass Flow Faucets · Sourcing & export · Kaiping, Guangdong, China</div>
-</footer>
+<footer><div class="wrap">© 2026 Brass Flow Faucets · Sourcing &amp; export · Kaiping, Guangdong, China</div></footer>
 </body>
 </html>
